@@ -11,7 +11,7 @@ NOTION_API_KEY = "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"
 HEADERS = {
     "Authorization": f"Bearer {NOTION_API_KEY}",
     "Content-Type": "application/json",
-    "Notion-Version": "2022-06-28"
+    "Notion-Version": "2025-09-03"
 }
 
 # ------------------- SETTINGS -------------------
