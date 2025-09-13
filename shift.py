@@ -6,8 +6,8 @@ from dateutil.relativedelta import relativedelta
 
 # ------------------- CONFIG -------------------
 NOTION_API_URL = "https://api.notion.com/v1/pages"
-NOTION_DATABASE_ID = "1f3fc0a12dfe80a2b792da9ba203f271"
-NOTION_API_KEY = "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"
+NOTION_DATABASE_ID = "1f3fc0a12dfe80a29dfdd518e89dd172"
+NOTION_API_KEY = "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"
 HEADERS = {
     "Authorization": f"Bearer {NOTION_API_KEY}",
     "Content-Type": "application/json",
