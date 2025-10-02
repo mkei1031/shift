@@ -1,38 +1,4 @@
-import os
-import streamlit as st
-import pandas as pd
-from datetime import date, timedelta
-import requests
-from dateutil.relativedelta import relativedelta
-from dotenv import load_dotenv
-
-# ------------------- CONFIG -------------------
-# .env を読み込む（ローカル用）
-load_dotenv()
-
-NOTION_API_URL = "https://api.notion.com/v1/pages"
-NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID")
-NOTION_API_KEY = os.getenv("NOTION_API_KEY")
-
-HEADERS = {
-    "Authorization": f"Bearer {NOTION_API_KEY}",
-    "Content-Type": "application/json",
-    "Notion-Version": "2025-09-03"  # 最新バージョン
-}
-
-# ------------------- SETTINGS -------------------
-shops = [
-    "渋谷", "上野", "秋葉原", "新橋", "新宿西", "池袋", "新宿東", "学大",
-    "飯田橋", "銀座", "八重洲", "立川", "恵比寿", "武蔵小山",
-    "銀座イベントスペース", "八重洲イベントスペース", "立川イベントスペース"
-]
-
-# 本当は Notion API からスタッフ名の select 値を取るのが良い
-staff_list = [
-    "加藤", "加川", "藪下", "香坂", "細野", "土佐", "田中",
-    "西坂", "大高", "中森", "稲葉", "山嵜", "村田", "徳山", "冨澤",
-    "朝日", "三浦", "松井", "早坂", "蓜島", "林", "桂", "向井原", "関口"
-]
+"]
 
 # ------------------- UI INPUT -------------------
 st.title("アルバイト シフト申請フォーム")
@@ -71,10 +37,11 @@ def post_to_notion(date_str, staff, shop, memo):
     }
     response = requests.post(NOTION_API_URL, headers=HEADERS, json=data)
 
+
     if response.status_code in [200, 201]:
         return True
 
-    # 失敗時のデバッグ出力
+    # 失敗した場合は詳細をログに出す
     print("送信失敗:", response.status_code, response.text)
     return False
 
