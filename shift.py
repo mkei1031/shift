@@ -1,4 +1,27 @@
-"]
+import streamlit as st
+import pandas as pd
+from datetime import date, timedelta
+import requests
+from dateutil.relativedelta import relativedelta
+
+# ------------------- CONFIG -------------------
+NOTION_API_URL = "https://api.notion.com/v1/pages"
+NOTION_DATABASE_ID = "1f3fc0a12dfe80a2b792da9ba203f271"
+NOTION_API_KEY = "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"
+HEADERS = {
+    "Authorization": f"Bearer {NOTION_API_KEY}",
+    "Content-Type": "application/json",
+    "Notion-Version": "2025-09-03"
+}
+
+# ------------------- SETTINGS -------------------
+shops = [
+    "渋谷", "上野", "秋葉原", "新橋", "新宿西", "池袋", "新宿東", "学大",
+    "飯田橋", "銀座", "八重洲", "立川", "恵比寿" , "武蔵小山","銀座イベントスペース",
+    "八重洲イベントスペース", "立川イベントスペース"
+]
+
+staff_list = ["加藤", "加川", "藪下", "香坂", "細野", "土佐", "田中", "西坂", "大高", "中森", "稲葉" , "山嵜" , "村田", "徳山", "冨澤", "朝日","三浦", "松井" , "早坂", "蓜島" , "林" , "桂" , "向井原" , "関口"]
 
 # ------------------- UI INPUT -------------------
 st.title("アルバイト シフト申請フォーム")
